@@ -1,0 +1,114 @@
+<div class="search_form">
+    <form method="post" action="/search/searchresults">
+        <div class="label_space">
+            <label>Favorites Only</label>
+            <div>
+                <select name="favoritesOnly" id="select1">
+                    <option value="false" selected>Off</option>
+                    <option value="true">On</option>
+                </select>
+            </div>
+        </div>
+        <div class="label_space">
+            <label>Following Only</label>
+            <div>
+                <select name="followingOnly" id="select2">
+                    <option value="false" selected>Off</option>
+                    <option value="true">On</option>
+                </select>
+            </div>
+        </div>
+        <div class="label_space">
+            <label>Less Than Time (mins)</label>
+            <div>
+                <input name="lessThanTime" value="0" type="number" min="0">
+            </div>
+        </div>
+        <div class="label_space">
+            <label>Over Rating</label>
+            <div>
+                <input name="overRating" value="1" type="number" min="1" max="5" step="1">
+            </div>
+        </div>
+        <div class="label_space">
+            <label>Meal Type</label>
+            <div>
+                <select name="mealType">
+                    <option value="">-- Select Meal Type --</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Brunch">Brunch</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Snack">Snack</option>
+                    <option value="Dessert">Dessert</option>
+                </select>
+            </div>
+        </div>
+        <div class="label_space">
+            <label>Cuisine Type</label>
+            <div>
+                <select name="cuisineType">
+                    <option value="">-- Select Cuisine --</option>
+                    <option value="Mediterranean">Mediterranean</option>
+                    <option value="Indian">Indian</option>
+                    <option value="Mexican">Mexican</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Thai">Thai</option>
+                    <option value="Chinese">Chinese</option>
+                </select>
+            </div>
+        </div>
+        <div class="label_space">
+            <label>Order Recipe</label>
+            <div>
+                <select name="orderRecipe" id="select10">
+                    <option value="Highest Rated">Highest Rated</option>
+                    <option value="Lowest Rated">Lowest Rated</option>
+                    <option value="Most Viewed">Most Viewed</option>
+                    <option value="Least Viewed">Least Viewed</option>
+                    <option value="Most Recent">Most Recent</option>
+                    <option value="Least Recent">Least Recent</option>
+                </select>
+            </div>
+        </div>
+<!--
+        <div class="label_space">
+            <label>Order Chef</label>
+            <div>
+                <select name="orderChef" id="select11">
+                    <option value="">-- Default --</option>
+                    <option value="Highest Rated">Highest Rated</option>
+                    <option value="Lowest Rated">Lowest Rated</option>
+                    <option value="Most Viewed">Most Viewed</option>
+                    <option value="Least Viewed">Least Viewed</option>
+                    <option value="Most Recent">Most Recent</option>
+                    <option value="Least Recent">Least Recent</option>
+                </select>
+            </div>
+        </div>
+-->
+        <div class="label_space">
+            <label>Limit Results</label>
+            <div>
+                <input name="limitResults" value="1" type="number" min="1" step="1">
+            </div>
+        </div>
+        <div class="rec_button">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    <div class="clear"></div>
+</div>
+
+<script>
+    const select1 = document.getElementById('select10');
+    const select2 = document.getElementById('select11');
+
+    select1.addEventListener('change', () => {
+        select2.value = '';
+    });
+
+    select2.addEventListener('change', () => {
+        select1.value = '';
+    });
+</script>

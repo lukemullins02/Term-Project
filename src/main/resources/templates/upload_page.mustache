@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> fragments/html_header}}
+<body>
+    <h1>Upload Image</h1>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <input
+            type="file"
+            name="file"
+            accept="application/pdf, image/png, image/jpeg"
+        />
+        <button type="submit">Upload</button>
+    </form>
+    <a href="/chefs">Back to Chefs</a>
+</body>
+</html>

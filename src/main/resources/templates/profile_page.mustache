@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> fragments/html_header}}
+
+<body>
+    {{> fragments/top_bar}}
+    {{^isCurrentUser}}
+        <div class="center-content">
+            <img class="profile-image" src="{{user.image_path}}" alt="Profile Image">
+            <div class="profile-text">
+                <span class="username">{{user.username}}</span>
+            </div>
+            <div class="post-date">
+                {{user.username}}'s Recipes:
+                <ul>
+                    {{#recipes}}
+                        <li>{{title}}</li>
+                    {{/recipes}}
+                </ul>
+            </div>
+        </div>
+    {{/isCurrentUser}}
+    {{#isCurrentUser}}
+        <div class="center-content">
+            <form method="POST" action="/profile" enctype="multipart/form-data">
+            <div class="profileImg-text">
+                <label for="file-upload" class="image-upload-wrapper">
+                <img class="profile-image" src="{{user.image_path}}" alt="Profile Image">
+                <div class="overlay-text">Click to update</div>
+                </label>
+                <input id="file-upload" name="file" type="file" 
+                    accept="image/png, image/jpeg, image/jpg" hidden onchange="this.form.submit()">
+                <button type="submit" hidden>Update Profile Picture</button>
+            </div>
+            </form>
+            <div class="profile-text">
+                <span class="username">{{user.username}}</span>
+            </div>
+            <div class="post-date">
+                Your Recipes:
+                <ul>
+                    {{#recipes}}
+                        <li>{{title}}</li>
+                    {{/recipes}}
+                </ul>
+            </div>
+        </div>
+    {{/isCurrentUser}}
+</body>
+</html>

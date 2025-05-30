@@ -1,0 +1,63 @@
+
+        <div class="recipe_form">
+        <form method="post" action="/recipe/createrecipe" enctype="multipart/form-data">
+            <div class="label_space">
+             <label>Title</label> 
+             <div>
+             <textarea name="titleText"></textarea>
+             </div>
+             </div>
+             <div class="label_space">
+             <label>Directions</label>
+             <div>
+             <textarea class="directions_size" name="directionsText"></textarea>
+             </div>
+             </div>
+             <div class="label_space">
+             <label>Image</label>  
+             <div>
+             <input name="file" type="file"
+                accept="application/pdf, image/png, image/jpeg, image/jpg">
+             </div>
+             </div>
+             <div class="label_space">
+  <label>Meal Type</label>
+  <div class="meal-type-group">
+    <label><input type="radio" name="mealType" value="Breakfast"> Breakfast</label>
+    <label><input type="radio" name="mealType" value="Brunch"> Brunch</label>
+    <label><input type="radio" name="mealType" value="Lunch"> Lunch</label>
+    <label><input type="radio" name="mealType" value="Dinner"> Dinner</label>
+    <label><input type="radio" name="mealType" value="Snack"> Snack</label>
+    <label><input type="radio" name="mealType" value="Dessert"> Dessert</label>
+  </div>
+</div>
+
+<div class="label_space">
+  <label>Cuisine Type</label>
+  <div>
+    <select name="cuisineType">
+      <option value="">-- Select Cuisine --</option>
+      <option value="Mediterranean">Mediterranean</option>
+      <option value="Indian">Indian</option>
+      <option value="Mexican">Mexican</option>
+      <option value="Italian">Italian</option>
+      <option value="Thai">Thai</option>
+      <option value="Chinese">Chinese</option>
+      <!-- Add more as needed -->
+    </select>
+  </div>
+</div>
+
+             <div>
+             <label>Estimated Time (mins)</label>
+             <div>
+              <input name="timeText" value="0" type="number" min="0"></input>
+             </div>
+            </div>
+            <div class="rec_button">
+            <button type="submit">Submit</button>
+            </div>
+        </form>
+        <div class="clear"></div>
+        </div>
+ 

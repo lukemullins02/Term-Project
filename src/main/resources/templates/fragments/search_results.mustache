@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> fragments/html_header}}
+
+<body class="home-bg">
+    {{> fragments/top_bar}}
+
+    <div class="container">
+        {{#errorMessage}}
+        <div class="error-message">{{errorMessage}}</div>
+        {{/errorMessage}}
+
+        <!-- Recipe Results -->
+        {{#recipes}}
+        <div class="posts">
+            <h2>Recipe Results</h2>
+            {{> fragments/recipe}}
+        </div>
+        {{/recipes}}
+        {{^recipes}}
+        <div class="no-content-message">No recipes found.</div>
+        {{/recipes}}
+
+        <!-- Chef Results -->
+        {{#users}}
+        <div class="posts">
+            <h2>Chef Results</h2>
+            {{> fragments/chef}}
+        </div>
+        {{/users}}
+        {{^users}}
+        <div class="no-content-message">No chefs found.</div>
+        {{/users}}
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 Recipe App. All rights reserved.</p>
+    </footer>
+</body>
+</html>

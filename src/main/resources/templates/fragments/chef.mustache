@@ -1,0 +1,36 @@
+<div class="profile-card framed post soft-orange-bg">
+  <div class="profile-info">
+    <div class="profile-text">
+    <img class="profile-image" src="{{image_path}}" alt="Profile Image">
+    <a href="/profile/{{user_id}}/false" class="link">View Profile</a>
+    </div>
+    <div class="profile-text">
+      <span class="username">{{username}}</span>
+      <div class="post-details">
+        <div class="post-date">User ID: {{user_id}}</div>
+        <div class="post-date">
+          Chef Recipes:
+          <ul>
+            {{#recipes}}
+              <li>{{title}}</li>
+            {{/recipes}}
+          </ul>
+        </div>
+      </div>
+    </div>
+    {{^isSubbed}}
+      <form method="get" action="/chefs/{{user_id}}/sub/true">
+        <button class="sub-button" title="Follow">
+          <i class="fas fa-user-plus"></i>
+        </button>
+      </form>
+    {{/isSubbed}}
+    {{#isSubbed}}
+      <form method="get" action="/chefs/{{user_id}}/sub/false">
+        <button class="sub-button" title="Unfollow">
+          <i class="fas fa-user-minus"></i>
+        </button>
+      </form>
+    {{/isSubbed}}
+  </div>
+</div>

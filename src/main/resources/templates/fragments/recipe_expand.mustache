@@ -1,0 +1,52 @@
+<!-- Head -->
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const ratingDiv = document.querySelector(".rating");
+      if (!ratingDiv) return;
+
+      const userRating = parseInt(ratingDiv.dataset.userRating || "0");
+      const stars = ratingDiv.querySelectorAll(".rating-button");
+
+      function updateVisualRating(hoverValue = null) {
+        const value = hoverValue !== null ? hoverValue : userRating;
+        stars.forEach(star => {
+          const starValue = parseInt(star.dataset.value);
+          star.querySelector("i").style.color = starValue <= value ? "#ffea4e" : "#cdc9c9";
+        });
+      }
+
+      updateVisualRating();
+
+      stars.forEach(star => {
+        star.addEventListener("mouseenter", () => updateVisualRating(parseInt(star.dataset.value)));
+        star.addEventListener("mouseleave", () => updateVisualRating());
+        star.addEventListener("click", () => {
+          const recipeId = ratingDiv.dataset.recipeId;
+          const value = star.dataset.value;
+          window.location.href = `/rexpand/${recipeId}/stars/${value}`;
+        });
+      });
+    });
+  </script>
+</head>
+
+<!-- Recipe Image -->
+<img src="{{image_path}}" class="image-expand" alt="Recipe Image">
+
+<!-- Rating Stars (clickable) -->
+<div class="rating" data-user-rating="{{userRating}}" data-recipe-id="{{recipe_id}}">
+ 
+  {{#starCounts}}
+    <span class="rating-button" data-value="{{.}}">
+      <i class="fa-solid fa-star"></i>
+    </span>
+  {{/starCounts}}
+   :User rating
+
+</div>
+<h1 class="rate-h4">Directions:</h1>
+<div class="rate-dir">
+  <h4>{{directions}}</h4>
+</div>

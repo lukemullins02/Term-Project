@@ -1,0 +1,22 @@
+<head> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<div class="card-container">
+  <div class="card">
+    <div class="image-wrapper">
+     <a href="/rexpand/{{recipe_id}}" class="link">Expanded View</a>
+      <img src="{{image_path}}" class="image" alt="Recipe Image">
+    </div>
+    <div class="card-footer">
+      <h4>{{title}}</h4>
+      <div class="stars">
+        <h4>Rating: </h4>
+        {{#stars}}
+          <i class="fa-solid fa-star"></i>
+        {{/stars}}
+      </div>
+      <h4>Estimated Time: {{estim_time}} min</h4>
+    </div>
+  </div>
+</div>
